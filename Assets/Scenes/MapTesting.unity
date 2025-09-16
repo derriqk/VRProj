@@ -1526,7 +1526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _monoscopic: 0
   _sharpenType: 0
-  _enableDynamicResolution: 0
+  _enableDynamicResolution: 1
   minDynamicResolutionScale: 1
   maxDynamicResolutionScale: 1
   quest2MinDynamicResolutionScale: 0.7
@@ -1780,7 +1780,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2177110258831271098, guid: e90cc4027fba497468133dd1c7d87581, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -167.47021
+      value: -139
       objectReference: {fileID: 0}
     - target: {fileID: 2177110258831271098, guid: e90cc4027fba497468133dd1c7d87581, type: 3}
       propertyPath: m_LocalPosition.y
