@@ -332,11 +332,11 @@ Transform:
   m_GameObject: {fileID: 114545455}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.759075, y: 0.984, z: 1.749}
-  m_LocalScale: {x: 0.02533527, y: 0.34207553, z: 1.0930737}
+  m_LocalPosition: {x: 0.49699995, y: 0.18873975, z: 0.017535873}
+  m_LocalScale: {x: 0.04269438, y: 0.5764573, z: 0.9127659}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1469699993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &143840824
 GameObject:
@@ -1943,6 +1943,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantproto: {fileID: 3150824934439846614, guid: 15677ee65e6694d489ccd36f01722f34, type: 3}
   spawnlocation: {fileID: 114545455}
+--- !u!4 &1469699993 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8407670310155081144, guid: f6646b1f651d58c47a836d2975782e30, type: 3}
+  m_PrefabInstance: {fileID: 8983305671851530043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1471271960
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,7 +2475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407670310155081144, guid: f6646b1f651d58c47a836d2975782e30, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.728
+      value: 9.23
       objectReference: {fileID: 0}
     - target: {fileID: 8407670310155081144, guid: f6646b1f651d58c47a836d2975782e30, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2502,7 +2507,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8407670310155081144, guid: f6646b1f651d58c47a836d2975782e30, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 114545459}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 305097390535608636, guid: f6646b1f651d58c47a836d2975782e30, type: 3}
       insertIndex: -1
@@ -2522,5 +2530,4 @@ SceneRoots:
   - {fileID: 158161481}
   - {fileID: 2091965887}
   - {fileID: 8983305671851530043}
-  - {fileID: 114545459}
   - {fileID: 1074409362}
