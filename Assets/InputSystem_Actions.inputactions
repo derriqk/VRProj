@@ -1038,6 +1038,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "playerBody",
+            "id": "fc1bc418-42c3-4911-a359-6f0d4a719825",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "33b7ebfb-0b9d-4ac5-8633-d10557e79e60",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "1d536a7f-b7e2-4536-9cda-77b5140301c9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a8e75273-74bc-4dfc-9482-57242789e321",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "98d01306-7eb2-470e-aa48-d3fa5562121c",
+                    "path": "<Keyboard>/#(W)",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
