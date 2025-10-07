@@ -11,7 +11,6 @@ public class GrabHerbBehavior : MonoBehaviour
 
     private bool touched = false; // initially not touched
 
-    private Vector3 ogLocation;
     public GameObject inv;
     public InventoryScript invScript;
 
@@ -19,7 +18,6 @@ public class GrabHerbBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ogLocation = herb.transform.position;
         invScript = inv.GetComponent<InventoryScript>();
     }
 
@@ -54,8 +52,11 @@ public class GrabHerbBehavior : MonoBehaviour
 
         if (invScript.currentitemCount < 2)
         {
-            GameObject herbcopy = herb;
-            invScript.inv[invScript.currentitemCount] = herb;
+            render.material.color = Color.pink; // to visually debug the backend
+            // this means while testing, at most you should only see 2 pink cubes since i havent made the delete from inv yet
+
+            invScript.inv[invScript.currentitemCount] = Instantiate(herb);
+            invScript.currentitemCount++;
         }
 
         StartCoroutine(resetpos(1f));
