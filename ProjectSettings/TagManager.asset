@@ -6,6 +6,7 @@ TagManager:
   tags:
   - playerbody
   - border
+  - inventory
   layers:
   - Default
   - TransparentFX
