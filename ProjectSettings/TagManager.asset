@@ -6,6 +6,8 @@ TagManager:
   tags:
   - playerbody
   - border
+  - inventory
+  - vrCam
   layers:
   - Default
   - TransparentFX
