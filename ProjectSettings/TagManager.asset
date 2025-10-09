@@ -8,6 +8,10 @@ TagManager:
   - border
   - inventory
   - vrCam
+  - redzone
+  - slot1
+  - slot2
+  - combine
   layers:
   - Default
   - TransparentFX
