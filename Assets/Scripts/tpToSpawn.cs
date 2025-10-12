@@ -5,17 +5,19 @@ public class PlayerBody : MonoBehaviour
     public GameObject cam;
 
     public Vector3 spawnPoint;
+    public GameObject cubeSpawn;
     float minY = -5f;
-    float maxZ = 1414f;
-    float minZ = 991f;
+    float maxZ = 28f;
+    float minZ = 8f;
 
-    float maxX = 1577f;
-    float minX = 1170f;
+    float maxX = 40f;
+    float minX = 20f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spawnPoint = new Vector3(1378, 21.5f, 1194);
+        spawnPoint = cubeSpawn.transform.position;
+        cubeSpawn.GetComponent<Renderer>().enabled = false;
     }
 
     // Update is called once per frame
