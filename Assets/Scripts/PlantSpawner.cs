@@ -26,7 +26,7 @@ public class PlantSpawner : MonoBehaviour
 
             Vector3 spawnpos = spawnlocation.transform.TransformPoint(localPos);
             GameObject herb = Instantiate(plantproto, spawnpos, Quaternion.identity);
-            herb.GetComponent<GrabHerbBehavior>().spawnerScript = this;
+            //herb.GetComponent<GrabHerbBehavior>().spawnerScript = this;
             spawnrate = 0f;
 
             currentplants++;

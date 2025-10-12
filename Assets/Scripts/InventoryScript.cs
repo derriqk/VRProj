@@ -10,6 +10,7 @@ public class InventoryScript : MonoBehaviour
     public GameObject slot2;
     public GameObject redZone; // used for deleting via collision
     public GameObject combineZone;
+    public GameObject combineSlot;
 
     public bool slot1Taken = false;
     public bool slot2Taken = false;
@@ -23,6 +24,7 @@ public class InventoryScript : MonoBehaviour
         slot2 = GameObject.FindWithTag("slot2");
         redZone = GameObject.FindWithTag("redzone");
         combineZone = GameObject.FindWithTag("combine");
+        combineSlot = GameObject.FindWithTag("combineslot");
         // hide them
         if (slot1 != null)
         {
@@ -39,6 +41,10 @@ public class InventoryScript : MonoBehaviour
         if (combineZone != null)
         {
             combineZone.GetComponent<Renderer>().enabled = false; // inactive at first
+        }
+        if (combineSlot != null)
+        {
+            combineSlot.GetComponent<Renderer>().enabled = false; // inactive 
         }
     }
 
