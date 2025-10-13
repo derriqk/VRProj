@@ -42,6 +42,7 @@ public class GrabHerbBehavior : MonoBehaviour
 
     public bool wasCombined = false;
     public bool toKill = false;
+    public bool toReset = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -243,7 +244,7 @@ public class GrabHerbBehavior : MonoBehaviour
 
 
         }
-        if (isInInv && other.CompareTag("patient") && !shelfitem && wasCombined)
+        if (isInInv && other.CompareTag("patient") && !shelfitem && (wasCombined || toKill || toReset))
         {
             givingToPatient = true;
             // handle logic
@@ -258,8 +259,13 @@ public class GrabHerbBehavior : MonoBehaviour
             {
                 invScript.slot2Taken = false;
             }
-
-            patientScript.changeColor(initValue);
+            if (toReset)
+            {
+                patientScript.resetPatient();
+            } else
+            {
+                patientScript.changeColor(initValue);
+            }
 
             Destroy(herb);
             invScript.redZone.SetActive(false);

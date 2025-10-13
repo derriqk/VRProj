@@ -40,9 +40,18 @@ public class Combine : MonoBehaviour
     {
         if (item1Taken && item2Taken) // this means it is full, and combining should be done
         {
-            item1Taken = false;
-            item2Taken = false;
-            StartCoroutine(combining(.5f));
+            // dont combine if any
+            if (item1.GetComponent<GrabHerbBehavior>().toKill || item2.GetComponent<GrabHerbBehavior>().toKill || 
+                item1.GetComponent<GrabHerbBehavior>().toReset || item2.GetComponent<GrabHerbBehavior>().toReset)
+            {
+                
+            } else
+            {
+                item1Taken = false;
+                item2Taken = false;
+                StartCoroutine(combining(.5f));
+            }
+            
         }
     }
     

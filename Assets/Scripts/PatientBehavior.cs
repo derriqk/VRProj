@@ -10,6 +10,8 @@ public class PatientBehavior : MonoBehaviour
     private int sign;
     public Color[] colors = new Color[6];
 
+    public Color ogColor;
+
     public GameObject patientHandler;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,12 +34,20 @@ public class PatientBehavior : MonoBehaviour
         colors[3] = new Color(0.5f, 0.6f, 0.3f);
         colors[4] = new Color(0f, 0.3f, 0f);
         colors[5] = new Color(0f, 1f, 0f);
+
+        ogColor = patient.GetComponent<Renderer>().material.color;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+    public void resetPatient()
+    {
+        sum = 0;
+        Renderer rend = patient.GetComponent<Renderer>();
+        rend.material.color = ogColor;
     }
 
     public void changeColor(int i) // this will change the color of the patient based on the initValues of cubes fed

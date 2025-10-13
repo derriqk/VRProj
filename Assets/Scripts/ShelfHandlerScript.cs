@@ -7,6 +7,7 @@ public class ShelfHandlerScript : MonoBehaviour
     public Color[] colors = new Color[10];
 
     public GameObject killslot;
+    public GameObject resetslot;
 
     // inv
     public GameObject combineSlot;
@@ -54,6 +55,16 @@ public class ShelfHandlerScript : MonoBehaviour
         temp.GetComponent<GrabHerbBehavior>().shelfitem = true;
         temp.GetComponent<Renderer>().material.color = Color.black;
 
+        // reset slot
+        resetslot.GetComponent<Renderer>().enabled = false;
+        tempspawn = resetslot.transform.position;
+        temp = Instantiate(plantProto, tempspawn, Quaternion.identity);
+        temp.GetComponent<GrabHerbBehavior>().shelfSlot = 16;
+        temp.GetComponent<GrabHerbBehavior>().initValue = 0;
+        temp.GetComponent<GrabHerbBehavior>().toReset = true;
+        temp.GetComponent<GrabHerbBehavior>().shelfitem = true;
+        temp.GetComponent<Renderer>().material.color = Color.gray;
+
     }
 
     // Update is called once per frame
@@ -73,7 +84,18 @@ public class ShelfHandlerScript : MonoBehaviour
             herb.GetComponent<GrabHerbBehavior>().toKill = true;
             herb.GetComponent<GrabHerbBehavior>().shelfitem = true;
             herb.GetComponent<Renderer>().material.color = Color.black;
-        } else
+        }
+        else if (i == 16)
+        {
+            Vector3 spawnpos = resetslot.transform.position;
+            GameObject herb = Instantiate(plantProto, spawnpos, Quaternion.identity);
+            herb.GetComponent<GrabHerbBehavior>().shelfSlot = 16;
+            herb.GetComponent<GrabHerbBehavior>().initValue = 0;
+            herb.GetComponent<GrabHerbBehavior>().toReset = true;
+            herb.GetComponent<GrabHerbBehavior>().shelfitem = true;
+            herb.GetComponent<Renderer>().material.color = Color.gray;
+        }
+        else
         {
             Vector3 spawnpos = shelf[i].transform.position;
             GameObject herb = Instantiate(plantProto, spawnpos, Quaternion.identity);
