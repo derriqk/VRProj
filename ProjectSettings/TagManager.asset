@@ -12,6 +12,10 @@ TagManager:
   - slot1
   - slot2
   - combine
+  - shelfhandler
+  - combineslot
+  - patient
+  - patienthandler
   layers:
   - Default
   - TransparentFX
