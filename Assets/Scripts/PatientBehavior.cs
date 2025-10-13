@@ -1,30 +1,37 @@
 using UnityEngine;
+using System.Collections;
 
 public class PatientBehavior : MonoBehaviour
 {
     public GameObject patient;
     public int targetVal;
+
+    public int sum;
     private int sign;
-    public Color[] colors = new Color[10];
+    public Color[] colors = new Color[6];
+
+    public GameObject patientHandler;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        patientHandler = GameObject.FindWithTag("patienthandler");
+        sum = 0;
         sign = Random.Range(0, 2);
         if (sign > 0)
         {
-            targetVal = Random.Range(15, 30);
+            targetVal = Random.Range(15, 31);
         }
         else
         {
             targetVal = Random.Range(-30, -14);
         }
 
-        for (int i = 0; i < 5; i++)
-        {
-            colors[i] = new Color(1.0f - (i * .2f), 0.0f, 0.0f);
-            colors[i + 5] = new Color(0.0f, 0.2f + (i * .2f), 0.0f);
-        }
-        
+        colors[0] = new Color(1f, 0f, 0f);
+        colors[1] = new Color(1f, 0.5f, 0f);
+        colors[2] = new Color(1f, 1f, 0f); 
+        colors[3] = new Color(0.5f, 0.6f, 0.3f);
+        colors[4] = new Color(0f, 0.3f, 0f);
+        colors[5] = new Color(0f, 1f, 0f);
     }
 
     // Update is called once per frame
@@ -32,43 +39,35 @@ public class PatientBehavior : MonoBehaviour
     {
 
     }
-    
+
     public void changeColor(int i) // this will change the color of the patient based on the initValues of cubes fed
     {
+        sum += i;
         Renderer rend = patient.GetComponent<Renderer>();
-        if (i < targetVal + 2 && i > targetVal - 2)
-        {
-            rend.material.color = colors[9];
-        }
-        else if (i < targetVal + 4 && i > targetVal - 4)
-        {
-            rend.material.color = colors[8];
-        }
-        else if (i < targetVal + 6 && i > targetVal - 6)
-        {
-            rend.material.color = colors[7];
-        }
-        else if (i < targetVal + 8 && i > targetVal - 8)
-        {
-            rend.material.color = colors[6];
-        }
-        else if (i < targetVal + 10 && i > targetVal - 10)
+        if (sum < targetVal + 3 && sum > targetVal - 3)
         {
             rend.material.color = colors[5];
+            // redo patient
+
+            if (patientHandler != null)
+            {
+                patientHandler.GetComponent<PatientHandler>().createNewPatient();
+                StartCoroutine(waitAndDestroy(1f));
+            }
         }
-        else if (i < targetVal + 12 && i > targetVal - 12)
+        else if (sum < targetVal + 6 && sum > targetVal - 6)
         {
             rend.material.color = colors[4];
         }
-        else if (i < targetVal + 14 && i > targetVal - 14)
+        else if (sum < targetVal + 9 && sum > targetVal - 9)
         {
             rend.material.color = colors[3];
         }
-        else if (i < targetVal + 16 && i > targetVal - 16)
+        else if (sum < targetVal + 12 && sum > targetVal - 12)
         {
             rend.material.color = colors[2];
         }
-        else if (i < targetVal + 18 && i > targetVal - 18)
+        else if (sum < targetVal + 15 && sum > targetVal - 15)
         {
             rend.material.color = colors[1];
         }
@@ -76,5 +75,23 @@ public class PatientBehavior : MonoBehaviour
         {
             rend.material.color = colors[0];
         }
+
+        if (sum > targetVal + 50 || sum < targetVal - 50)
+        {
+            // too far so patient will die
+            rend.material.color = Color.black;
+
+            if (patientHandler != null)
+            {
+                patientHandler.GetComponent<PatientHandler>().createNewPatient();
+                StartCoroutine(waitAndDestroy(1f));
+            }
+        }
+    }
+    
+    IEnumerator waitAndDestroy(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(patient);
     }
 }

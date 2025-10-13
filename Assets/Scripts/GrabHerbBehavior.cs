@@ -40,6 +40,9 @@ public class GrabHerbBehavior : MonoBehaviour
     public PatientBehavior patientScript;
     public bool givingToPatient = false;
 
+    public bool wasCombined = false;
+    public bool toKill = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -86,9 +89,17 @@ public class GrabHerbBehavior : MonoBehaviour
 
 
         // behavior for while it is in inventory
-        if (isInInv && !beingTouched && !combining && !givingToPatient) 
+        if (isInInv && !beingTouched && !combining && !givingToPatient)
         {
             followCam();
+        }
+        if (patient == null)
+        {
+                patient = GameObject.FindWithTag("patient");
+                if (patient != null)
+                {
+                    patientScript = patient.GetComponent<PatientBehavior>();
+                }
         }
     }
 
@@ -232,7 +243,7 @@ public class GrabHerbBehavior : MonoBehaviour
 
 
         }
-        if (isInInv && other.CompareTag("patient") && !shelfitem)
+        if (isInInv && other.CompareTag("patient") && !shelfitem && wasCombined)
         {
             givingToPatient = true;
             // handle logic
@@ -251,6 +262,8 @@ public class GrabHerbBehavior : MonoBehaviour
             patientScript.changeColor(initValue);
 
             Destroy(herb);
+            invScript.redZone.SetActive(false);
+            invScript.combineZone.GetComponent<Renderer>().enabled = false;
 
         }
     }

@@ -7,11 +7,11 @@ public class PlayerBody : MonoBehaviour
     public Vector3 spawnPoint;
     public GameObject cubeSpawn;
     float minY = -5f;
-    float maxZ = 28f;
+    float maxZ = 22f;
     float minZ = 8f;
 
-    float maxX = 40f;
-    float minX = 20f;
+    float maxX = 34f;
+    float minX = 19f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

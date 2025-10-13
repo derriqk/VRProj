@@ -42,7 +42,7 @@ public class Combine : MonoBehaviour
         {
             item1Taken = false;
             item2Taken = false;
-            StartCoroutine(combining(1));
+            StartCoroutine(combining(.5f));
         }
     }
     
