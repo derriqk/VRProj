@@ -18,9 +18,18 @@ public class Combine : MonoBehaviour
     public GameObject shelfHandler;
     public ShelfHandlerScript shelfScript;
 
+    // audio related things
+    public GameObject soundHolder;
+    public SoundHandlerScript soundScript;
+
 
     void Start()
     {
+        soundHolder = GameObject.FindWithTag("soundhandler");
+        if (soundHolder != null)
+        {
+            soundScript = soundHolder.GetComponent<SoundHandlerScript>();
+        }
         combineSlot = GameObject.FindWithTag("combineslot");
         inv = GameObject.FindWithTag("inventory");
         if (inv != null)
@@ -49,6 +58,7 @@ public class Combine : MonoBehaviour
             {
                 item1Taken = false;
                 item2Taken = false;
+                soundScript.PlayCombineSound();
                 StartCoroutine(combining(.5f));
             }
             

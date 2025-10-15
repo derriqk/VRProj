@@ -12,10 +12,19 @@ public class PatientBehavior : MonoBehaviour
 
     public Color ogColor;
 
+    // audio related things
+    public GameObject soundHolder;
+    public SoundHandlerScript soundScript;
+
     public GameObject patientHandler;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        soundHolder = GameObject.FindWithTag("soundhandler");
+        if (soundHolder != null)
+        {
+            soundScript = soundHolder.GetComponent<SoundHandlerScript>();
+        }
         patientHandler = GameObject.FindWithTag("patienthandler");
         sum = 0;
         sign = Random.Range(0, 2);
@@ -54,6 +63,7 @@ public class PatientBehavior : MonoBehaviour
     {
         sum += i;
         Renderer rend = patient.GetComponent<Renderer>();
+        bool correct = false;
         if (sum < targetVal + 3 && sum > targetVal - 3)
         {
             rend.material.color = colors[5];
@@ -61,6 +71,7 @@ public class PatientBehavior : MonoBehaviour
 
             if (patientHandler != null)
             {
+                correct = true;
                 patientHandler.GetComponent<PatientHandler>().createNewPatient();
                 StartCoroutine(waitAndDestroy(1f));
             }
@@ -86,6 +97,15 @@ public class PatientBehavior : MonoBehaviour
             rend.material.color = colors[0];
         }
 
+        if (correct)
+        {
+            soundScript.PlayCorrectSound();
+        }
+        else
+        {
+            soundScript.PlayWrongSound();
+        }
+        
         if (sum > targetVal + 50 || sum < targetVal - 50)
         {
             // too far so patient will die

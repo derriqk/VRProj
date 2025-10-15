@@ -16,6 +16,7 @@ TagManager:
   - combineslot
   - patient
   - patienthandler
+  - soundhandler
   layers:
   - Default
   - TransparentFX
