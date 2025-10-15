@@ -38,7 +38,7 @@ Deep green foliage with darker trunks enhances the forest depth and contrasts ni
 <img width="1260" height="878" alt="image-2" src="https://github.com/user-attachments/assets/055c1a6e-7081-43b9-828e-0ace17b5d64e" />
 
 # Results:
-If the user gets lost in a direction then the black cube kilss the patient by force. Once the either turns bright green or dies, a new patient spawns with a randomized target.
+If the user gets lost in a direction then the black cube kill the patient by force. Once the either turns bright green or dies, a new patient spawns with a randomized target.
 https://youtu.be/Axl_K_Xl6Ks
 
 
