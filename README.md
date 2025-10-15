@@ -4,16 +4,16 @@
 This project explores an interactive experience where players gather medicinal herbs, unlock recipes, and create medicines. The emphasis is on discovery, awareness, and purposeful exploration rather than competitive scoring. The game’s central mechanic revolves around a collection system that encourages players to learn about both beneficial and harmful properties of herbs in an immersive environment.
 
 # Objectives
-# Create Medicine: Recipes enable the crafting of medicines to cure symptoms or conditions that appear during exploration.
-#  Collection System: The primary goal is to collect herbs, knowledge, and recipes.
+1. Create Medicine: Recipes enable the crafting of medicines to cure symptoms or conditions that appear during exploration.
+2.  Collection System: The primary goal is to collect herbs, knowledge, and recipes.
 
 # We will keep the tools
-# 3D Map: A dynamic world where exploration takes place (forests, meadows, riversides).
-# Herbs Collection: A growing library of plant models with distinct traits, textures, and effects (list to be developed).
-# Materials & Textures: Naturalistic assets for plants, terrain, and crafted medicine.
+1. 3D Map: A dynamic world where exploration takes place (forests, meadows, riversides).
+2. Herbs Collection: A growing library of plant models with distinct traits, textures, and effects (list to be developed).
+3. Materials & Textures: Naturalistic assets for plants, terrain, and crafted medicine.
 
 # Scripts and Components
-# Grabbing Mechanic: Players can pick and store plants directly from the environment.
+1. Grabbing Mechanic: Players can pick and store plants directly from the environment.
 
 # How you will gain experience from project
 
