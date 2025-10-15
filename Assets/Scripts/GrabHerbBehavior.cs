@@ -44,6 +44,11 @@ public class GrabHerbBehavior : MonoBehaviour
     public bool toKill = false;
     public bool toReset = false;
 
+    // audio related things
+
+    public GameObject soundHolder;
+    public SoundHandlerScript soundScript;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,6 +57,11 @@ public class GrabHerbBehavior : MonoBehaviour
         patient = GameObject.FindWithTag("patient");
         inv = GameObject.FindWithTag("inventory");
         shelfHandler = GameObject.FindWithTag("shelfhandler");
+        soundHolder = GameObject.FindWithTag("soundhandler");
+        if (soundHolder != null)
+        {
+            soundScript = soundHolder.GetComponent<SoundHandlerScript>();
+        }
         if (inv != null)
         {
             invScript = inv.GetComponent<InventoryScript>();
@@ -106,10 +116,11 @@ public class GrabHerbBehavior : MonoBehaviour
 
     public void OnGrab()
     {
-        Renderer render = herb.GetComponent<Renderer>();
-
+        // Renderer render = herb.GetComponent<Renderer>();
+        
         if (!isInInv)
         {
+            soundScript.PlayPickupSound();
             // render.material.color = Color.red;
         }
         else
@@ -218,6 +229,7 @@ public class GrabHerbBehavior : MonoBehaviour
             {
                 invScript.slot2Taken = false;
             }
+            soundScript.PlayTrashSound();
             StartCoroutine(killherb(1f));
         }
         // handle combine
@@ -250,6 +262,7 @@ public class GrabHerbBehavior : MonoBehaviour
             // handle logic
             invScript.currentitemCount--;
             isInInv = false;
+            soundScript.PlayFeedSound();
 
             if (currentSlot == 1)
             {
